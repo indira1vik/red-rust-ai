@@ -1,0 +1,84 @@
+import { Button, VerticalBox, TextEdit, TabWidget } from "std-widgets.slint";
+
+export component MainWindow inherits Window {
+    title: "Red Rust AI Tools";
+    icon: @image-url("../assets/rust-icon.png");
+
+    width: 540px;
+    height: 540px;
+
+    in-out property <string> input-search;
+    in-out property <string> answer;
+    callback receive-search-content(string);
+
+    in-out property <string> bot-input;
+    in-out property <string> reply;
+    callback receive-bot-content(string);
+
+    TabWidget {
+        Tab {
+            title: "Summarizer";
+            forward-focus: txt-edit2;
+            VerticalBox {
+                Text {
+                    text: "Summarizer BERT encoder-decoder";
+                }
+                txt-edit1 := TextEdit {
+                    read-only: true;
+                    text: root.answer;
+                }        
+                txt-edit2 := TextEdit {
+                    height: 196px;
+                    text <=> root.input-search;
+                }
+                search-btn := Button {
+                    text: "Summarize";
+                    primary: true;
+                    clicked => {
+                        root.receive-search-content(root.input-search);
+                        txt-edit2.text = "";
+                    }
+                }
+                Button {
+                    text: "Clear results";
+                    primary: false;
+                    clicked => {
+                        root.answer = "";
+                    }
+                }
+            }
+        }
+        Tab {
+            title: "Sentiment Analysis";
+            forward-focus: txt-edit4;
+            VerticalBox {
+                Text {
+                    text: "DistilBERT model finetuned on SST-2";
+                }
+                txt-edit3 := TextEdit {
+                    read-only: true;
+                    text: root.reply;
+                }        
+                txt-edit4 := TextEdit {
+                    height: 96px;
+                    text <=> root.bot-input;
+                }
+                bot-btn := Button {
+                    text: "Analyze";
+                    primary: true;
+                    clicked => {
+                        root.receive-bot-content(root.bot-input);
+                        txt-edit4.text = "";
+                    }
+                }
+                Button {
+                    text: "Clear results";
+                    primary: false;
+                    clicked => {
+                        root.reply = "";
+                    }
+                }
+            }
+        }
+    }
+}
