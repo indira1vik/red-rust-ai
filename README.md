@@ -8,6 +8,4 @@ Used slint to develop a desktop application integrating Machine learning models 
 
 ### Screenshots
 
-<img src="./assets/screen-shot-one.png" width=250 height=200>
-
-<img src="./assets/screen-shot-two.png" width=250 height=200>
+<img src="./assets/screen-shot-one.png" width=396 height=396> <img src="./assets/screen-shot-two.png" width=396 height=396>
