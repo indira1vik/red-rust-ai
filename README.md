@@ -8,6 +8,6 @@ Used slint to develop a desktop application integrating Machine learning models 
 
 ### Screenshots
 
-![Summarizer Screenshot](./assets/screen-shot-one.png)
+<img src="./assets/screen-shot-one.png" width=250 height=200>
 
-![Sentiment Analysis Screenshot](./assets/screen-shot-two.png)
+<img src="./assets/screen-shot-two.png" width=250 height=200>
