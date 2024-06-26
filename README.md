@@ -1,3 +1,5 @@
+![Header](./assets/header.png)
+
 # Red Rust AI
 
 Crate used: `rust-bert`
